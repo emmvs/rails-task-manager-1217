@@ -9,12 +9,10 @@
     <%= f.text_area :details, class: 'form-control' %>
   </div>
 
-  <% unless f.object.new_record? %>
     <div class="checkbox">
       <label>
         <%= f.check_box :completed %> Completed
       </label>
     </div>
-  <% end %>
   <%= f.submit class: 'btn btn-primary mt-3' %>
 <% end %>

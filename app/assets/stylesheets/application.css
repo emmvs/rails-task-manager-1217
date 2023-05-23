@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+ .tasks-list {
+  text-decoration: none;
+  color: rgb(162, 162, 255);
+  padding: 10px;
+ }

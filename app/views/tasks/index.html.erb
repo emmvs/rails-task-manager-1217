@@ -1,2 +1,23 @@
-<h1>Tasks#index</h1>
-<p>Find me in app/views/tasks/index.html.erb</p>
+<div class="container mt-5">
+  <h1 class="mb-5">My bee-autiful tasks</h1>
+
+  <ul id="tasks" style="list-style: none;">
+    <% @tasks.each do |task| %>
+      <li class="d-flex justify-content-between">
+          <%= link_to task_path(task.id, task: {completed: !task.completed}), class: 'tasks-list', data: {turbo_method: :patch} do %>
+          <i class="tasks-list fa-heart fa-<%= task.completed? ? 'solid' : 'regular' %>"></i>
+        <% end %>
+        <%= link_to task.title, task_path(task.id), class: 'tasks-list' %>
+        <%= link_to task_path(task.id), data: {turbo_method: :delete, turbo_confirm: "Delete #{task.title}?"} do %>
+          <i class="fa-regular fa-trash-can"></i>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+
+  <hr>
+
+  <%= link_to new_task_path do %>
+    <i class="fa-solid fa-plus"></i> New task
+  <% end %>
+</div>
